@@ -7,7 +7,7 @@ class SandBoxRouter extends BaseRouter {
   }
   setup() {
     this.router.get('/', (req, res)=>{
-      res.sendFile(this.path.join(this.dir.view, 'SandBox.html'));
+      res.sendFile(this.path.join(this.dir.view, 'index.html'));
     });
   }
 }

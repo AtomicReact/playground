@@ -1,4 +1,4 @@
-class SandBox {
+class Playground {
   constructor(port) {
     this.express = require('express');
     this.path = require('path');
@@ -19,7 +19,7 @@ class SandBox {
     this.app.use(this.express.static(this.config.dir.dev));
   }
   setupRoute() {
-    this.router = require(this.path.join(this.config.dir.router, 'SandBox'));
+    this.router = require(this.path.join(this.config.dir.router, 'Playground'));
     this.app.use(this.router);
   }
   startHttpServer(){
@@ -32,4 +32,4 @@ class SandBox {
   }
 }
 
-module.exports = SandBox;
+module.exports = Playground;
