@@ -1,3 +1,3 @@
-var SandBox = require('./src/SandBox');
-var mySandBox = new SandBox(process.env.PORT || 80);
-mySandBox.start();
+var Playground = require('./src/Playground');
+var myPlayground = new Playground(process.env.PORT || 80);
+myPlayground.start();
