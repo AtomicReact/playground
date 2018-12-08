@@ -16,6 +16,7 @@ class SandBox {
   setupApp() {
     this.app.use(this.express.json());
     this.app.use(this.express.static(this.config.dir.public));
+    this.app.use(this.express.static(this.config.dir.dev));
   }
   setupRoute() {
     this.router = require(this.path.join(this.config.dir.router, 'SandBox'));
