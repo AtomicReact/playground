@@ -1,18 +1,25 @@
 {
-  "name": "sandbox",
+  "name": "playground",
   "version": "1.0.0",
-  "description": "a sandbox for AtomicReact",
+  "description": "a playground for AtomicReact",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "dev": "start Atomic && node index"
   },
   "keywords": [
-    "sandbox",
+    "playground",
     "atomicreact"
   ],
   "author": "Guihgo",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "atomicreact": "^1.1.6",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-minify": "^3.1.0"
   }
 }
