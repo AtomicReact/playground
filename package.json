@@ -1,0 +1,15 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "a sandbox for AtomicReact",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "sandbox",
+    "atomicreact"
+  ],
+  "author": "Guihgo",
+  "license": "MIT"
+}
