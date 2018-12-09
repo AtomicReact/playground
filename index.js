@@ -1,3 +1,4 @@
+console.log('[process.env.deployMode]', process.env.deployMode)
 if(process.env.deployMode=='true') {
   var gulpFile = require('./gulpfile');
   gulpFile.deploy();
