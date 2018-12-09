@@ -2,10 +2,56 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
     <title>AtomicReact Playground</title>
+
+
+    <script type="text/javascript" src="./libs/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="./libs/ace/theme-dracula.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="./libs/ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="./libs/ace/worker-javascript.js" type="text/javascript" charset="utf-8"></script>
+
     <script type="text/javascript" src="./AtomicReactBundle/atomicreact.core.js"></script>
     <script type="text/javascript" src="./AtomicReactBundle/atomicreact.bundle.js"></script>
     <link rel="stylesheet" href="./AtomicReactBundle/atomicreact.bundle.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style type="text/css">
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-button {
+        width: 0px;
+        height: 0px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 51, 0.54);
+        border: 0px none #ffffff;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #cbcb00;
+      }
+      ::-webkit-scrollbar-thumb:active {
+        background: #ffff00;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+        border: 0px none #ffffff;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-track:hover {
+        /* background: #666666; */
+      }
+      ::-webkit-scrollbar-track:active {
+        /* background: #333333; */
+      }
+      ::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+      </style>
   </head>
   <body>
     <Playground></Playground>

@@ -1,0 +1,7 @@
+[data-atomic-key="Menu"] {
+  text-align: center;
+}
+[data-atomic-key="Menu"] > button {
+  padding: 10px;
+  width: 90%;
+}

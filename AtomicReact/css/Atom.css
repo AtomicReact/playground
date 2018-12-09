@@ -1,3 +1,26 @@
 [data-atomic-key="Atom"] {
   color: #FF0;
+  text-align: center;
+  display: inline-block;
+  margin-top: 15px;
+}
+[data-atomic-key="Atom"] #buttons {
+  cursor: pointer;
+}
+[data-atomic-key="Atom"] #buttons polygon{
+  opacity: 0.2;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  user-select: none;
+}
+[data-atomic-key="Atom"] #buttons g:hover > polygon {
+  opacity: 1;
+}
+[data-atomic-key="Atom"] > [data-atomic-sub="atomKey"] {
+  /* background-color: #F00; */
+  border: 1px solid #FF0;
+  border-radius: 10px;
 }

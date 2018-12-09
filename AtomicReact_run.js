@@ -9,3 +9,4 @@ var myAtomic = new Atomic(require('./AtomicReact_config.js'), myHotReload); //in
 
 /* Listen all changes in custom files */
 myHotReload.addToWatch(require('path').join(__dirname, 'src/view'));
+myHotReload.addToWatch(require('path').join(__dirname, 'src/public/asset'));

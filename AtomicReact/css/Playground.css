@@ -1,7 +1,47 @@
 body {
-  background-color: #1e1e1e;
-  color: #FFF;
+  background-color: #1e1f2f !important;
+  color: #FFF !important;
 }
 [data-atomic-key="Playground"] {
-  margin-top: 50px;
+  padding-top: 0px;
+}
+[data-atomic-key="Playground"] > .ide [data-atomic-sub="btnToggleSidebar"] {
+  z-index: 100;
+  left: 175px;
+  top: 5px;
+  position: absolute;
+}
+[data-atomic-key="Playground"] > .ide .sidebar {
+  width: 170px;
+  height: 100%;
+  float: left;
+  padding: 0px;
+  position: fixed;
+  display: block;
+  overflow: scroll;
+}
+[data-atomic-key="Playground"] > .ide .sidebar .title a {
+  color: #FF0;
+  text-decoration: none;
+}
+[data-atomic-key="Playground"] > .ide .view{
+  margin-left: 170px;
+  width: auto;
+  padding-left:10px;
+}
+[data-atomic-key="Playground"] > .ide > .view [data-atomic-sub="barSizable"]{
+  z-index: 2;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  background-color: #234ea6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: row-resize;
 }

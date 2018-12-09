@@ -1,0 +1,13 @@
+[data-atomic-key="Editor"] > [data-atomic-sub="fileTitle"] {
+  background-color: #0f2042;
+  color: #FF0;
+  text-align: left;
+  padding: 5px;
+  font-size: 1.3em;
+  padding-left: 45px;
+  border-radius: 10px 10px 0 0;
+}
+[data-atomic-key="Editor"] > [data-atomic-sub="coder"] {
+  height: 300px;
+  font-size: 18px;
+}

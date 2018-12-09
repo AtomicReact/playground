@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1A1A1A;}
+	.st1{display:none;}
+	.st2{display:inline;}
+	.st3{fill:#CEAC20;stroke:#E6FF2B;stroke-width:0.75;stroke-miterlimit:10;}
+	.st4{fill:#FFFFFF;}
+	.st5{font-family:'MicrosoftSansSerif';}
+	.st6{font-size:8.6014px;}
+	.st7{fill:#6EA02D;stroke:#E6FF2B;stroke-miterlimit:10;}
+	.st8{font-size:8.601px;}
+	.st9{fill:#2E7E9E;stroke:#E6FF2B;stroke-miterlimit:10;}
+	.st10{fill:none;stroke:#E6FF2B;stroke-width:0.5;stroke-miterlimit:10;}
+	.st11{fill:none;stroke:#CEAC20;stroke-width:0.5;stroke-miterlimit:10;}
+	.st12{fill:none;stroke:#CEAC20;stroke-width:0.75;stroke-miterlimit:10;}
+	.st13{fill:#E6FF2B;}
+	.st14{fill:#CEAC20;}
+	.st15{opacity:0.17;}
+	.st16{fill:#FF0000;}
+	.st17{font-family:'MyriadPro-Regular';}
+	.st18{font-size:12px;}
+</style>
+<g id="bg">
+	<rect class="st0" width="100" height="100"/>
+</g>
+<g id="buttons" class="st1">
+	<g id="html" class="st2">
+		<polygon class="st3" points="17.5,31.5 50.5,12.5 82.5,31.5 49.5,49.5 		"/>
+		<text transform="matrix(0.8693 -0.4943 0.4943 0.8693 41.3508 40.0944)" class="st4 st5 st6">HTML</text>
+	</g>
+	<g id="js" class="st2">
+		<polygon class="st7" points="17.5,62 17.5,31 44.5,46.5 44.5,53.5 50.5,57 50.5,81 44.5,84 23.5,72.5 23.5,65.5 		"/>
+		<text transform="matrix(0.8908 0.4543 -0.4543 0.8908 26.1716 60.1804)" class="st4 st5 st8">JS</text>
+	</g>
+	<g id="css" class="st2">
+		<polygon class="st9" points="50.5,81.5 50.5,56.5 55.5,53.5 55.5,46.2 76.3,34.9 82.5,38.5 82.5,61.5 76.5,65.5 76.5,72.5 
+			56.5,84.5 		"/>
+		<text transform="matrix(0.8633 -0.5047 0.5047 0.8633 60.5816 68.6045)" class="st4 st5 st6">CSS</text>
+	</g>
+</g>
+<g id="cube">
+	<g id="lines">
+		<g id="p3l2">
+			<line class="st10" x1="44.5" y1="15.5" x2="23.5" y2="27.5"/>
+		</g>
+		<g id="p3l1">
+			<line class="st10" x1="17.5" y1="37.5" x2="17.5" y2="62.5"/>
+		</g>
+		<g id="p2l2">
+			<line class="st10" x1="82.5" y1="62.5" x2="82.5" y2="37.5"/>
+		</g>
+		<g id="p2l1">
+			<line class="st10" x1="76.5" y1="27.5" x2="55.5" y2="15.5"/>
+		</g>
+		<g id="p1l2">
+			<line class="st10" x1="23.5" y1="72.5" x2="44.5" y2="84.5"/>
+		</g>
+		<g id="p1l1">
+			<line class="st10" x1="76.5" y1="72.5" x2="55.5" y2="84.5"/>
+		</g>
+		<g id="p3_1_">
+			<line class="st11" x1="43.7" y1="46.4" x2="23.7" y2="34.9"/>
+		</g>
+		<g id="l2">
+			<line class="st12" x1="76.4" y1="34.8" x2="56.3" y2="46.5"/>
+		</g>
+		<g id="l1">
+			<line class="st12" x1="50" y1="80.5" x2="50" y2="57.4"/>
+		</g>
+	</g>
+	<g id="hexagos">
+		<g id="p6">
+			<polygon class="st13" points="43.9,15.7 43.9,8.7 50,5.2 56.1,8.7 56.1,15.7 50,19.2 			"/>
+			<path class="st13" d="M50,5.5l5.8,3.4v6.7L50,19l-5.8-3.4V8.9L50,5.5 M50,4.9l-6.3,3.7v7.3l6.3,3.7l6.3-3.7V8.6L50,4.9L50,4.9z"
+				/>
+		</g>
+		<g id="p5">
+			<polygon class="st13" points="76.5,72.4 76.5,65.3 82.6,61.8 88.7,65.3 88.7,72.4 82.6,75.9 			"/>
+			<path class="st13" d="M82.6,62.1l5.8,3.4v6.7l-5.8,3.4l-5.8-3.4v-6.7L82.6,62.1 M82.6,61.5l-6.3,3.7v7.3l6.3,3.7l6.3-3.7v-7.3
+				L82.6,61.5L82.6,61.5z"/>
+		</g>
+		<g id="p4">
+			<polygon class="st13" points="11.3,72.6 11.3,65.5 17.4,62 23.5,65.5 23.5,72.6 17.4,76.1 			"/>
+			<path class="st13" d="M17.4,62.3l5.8,3.4v6.7l-5.8,3.4l-5.8-3.4v-6.7L17.4,62.3 M17.4,61.7L11,65.4v7.3l6.3,3.7l6.3-3.7v-7.3
+				L17.4,61.7L17.4,61.7z"/>
+		</g>
+		<g id="p3">
+			<polygon class="st13" points="11.3,34.7 11.3,27.6 17.4,24.1 23.5,27.6 23.5,34.7 17.4,38.2 			"/>
+			<path class="st13" d="M17.4,24.4l5.8,3.4v6.7l-5.8,3.4l-5.8-3.4v-6.7L17.4,24.4 M17.4,23.8L11,27.5v7.3l6.3,3.7l6.3-3.7v-7.3
+				L17.4,23.8L17.4,23.8z"/>
+		</g>
+		<g id="p2">
+			<polygon class="st13" points="76.5,34.7 76.5,27.6 82.6,24.1 88.7,27.6 88.7,34.7 82.6,38.2 			"/>
+			<path class="st13" d="M82.6,24.4l5.8,3.4v6.7l-5.8,3.4l-5.8-3.4v-6.7L82.6,24.4 M82.6,23.8l-6.3,3.7v7.3l6.3,3.7l6.3-3.7v-7.3
+				L82.6,23.8L82.6,23.8z"/>
+		</g>
+		<g id="p1">
+			<polygon class="st13" points="43.9,91.3 43.9,84.3 50,80.8 56.1,84.3 56.1,91.3 50,94.8 			"/>
+			<path class="st13" d="M50,81l5.8,3.4v6.7L50,94.5l-5.8-3.4v-6.7L50,81 M50,80.5l-6.3,3.7v7.3l6.3,3.7l6.3-3.7v-7.3L50,80.5
+				L50,80.5z"/>
+		</g>
+		<g id="p0">
+			<polygon class="st14" points="43.9,53.6 43.9,46.6 50,43.1 56.1,46.6 56.1,53.6 50,57.1 			"/>
+			<path class="st14" d="M50,43.4l5.8,3.4v6.7L50,56.8l-5.8-3.4v-6.7L50,43.4 M50,42.8l-6.3,3.7v7.3l6.3,3.7l6.3-3.7v-7.3L50,42.8
+				L50,42.8z"/>
+		</g>
+	</g>
+</g>
+<g id="guias" class="st1">
+	<g id="hexagonoGuia_1_" class="st2">
+		<g id="hexagono" class="st15">
+			<path class="st13" d="M50,13l32.2,18.5v37.1L50,87.2L17.9,68.7V31.6L50,13 M50,11.8L16.8,31v38.3L50,88.4l33.1-19.2V30.9L50,11.8
+				L50,11.8z"/>
+		</g>
+		<circle id="v6" class="st16" cx="50" cy="12" r="1"/>
+		<circle id="v5" class="st16" cx="83" cy="69" r="1"/>
+		<circle id="v4" class="st16" cx="17" cy="69" r="1"/>
+		<g id="v3">
+			<circle class="st16" cx="17" cy="31" r="1"/>
+		</g>
+		<circle id="v2" class="st16" cx="83" cy="31" r="1"/>
+		<circle id="v1" class="st16" cx="50" cy="88" r="1"/>
+		<circle id="v0" class="st16" cx="50" cy="50" r="1"/>
+	</g>
+</g>
+<g id="btnAdd_1_">
+	<polygon class="st14" points="30.2,61.3 30.2,38.6 50,27.3 69.8,38.6 69.8,61.3 50,72.6 	"/>
+	<path class="st14" d="M50,28.2l18.8,11V61L50,71.7l-18.8-11V38.9L50,28.2 M50,26.3l-20.4,12v23.7l20.4,12l20.4-12V38.3L50,26.3
+		L50,26.3z"/>
+	<text transform="matrix(1 0 0 1 38.3362 55.0832)" class="st4 st17 st18">ADD</text>
+</g>
+</svg>
