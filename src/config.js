@@ -11,6 +11,7 @@ dir.public = path.join(dir.src, './public');
 dir.router = path.join(dir.src, './router');
 dir.view = path.join(dir.src, './view');
 dir.dev = path.join(dir.src, './dev');
+dir.dist = path.join(dir.src, './dist');
 
 var config = {
   dir: dir

@@ -16,7 +16,12 @@ class Playground {
   setupApp() {
     this.app.use(this.express.json());
     this.app.use(this.express.static(this.config.dir.public));
-    this.app.use(this.express.static(this.config.dir.dev));
+
+    if(process.env.deployMode=='true') {
+      this.app.use(this.express.static(this.config.dir.dist));
+    } else {
+      this.app.use(this.express.static(this.config.dir.dev));
+    }
   }
   setupRoute() {
     this.router = require(this.path.join(this.config.dir.router, 'Playground'));

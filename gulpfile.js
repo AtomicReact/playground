@@ -4,7 +4,7 @@ var MinifyJs = require('gulp-minify');
 
 var cssFolder = 'src/dev/**/*.css';
 var jsFolder = 'src/dev/**/*.js';
-var distFolder = 'src/public/';
+var distFolder = 'src/dist/';
 
 Gulp.task('default', () => {
   Gulp.watch(cssFolder, cleanCssFunction);
@@ -27,4 +27,9 @@ var minifyJs = function() {
       ignoreFiles: ['*-min.js']
     }))
     .pipe(Gulp.dest(distFolder));
+}
+
+module.exports.deploy = function(){
+  cleanCssFunction();
+  minifyJs();
 }
