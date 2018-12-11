@@ -1,10 +1,16 @@
 <div>
 
+<div atomic.sub="indexFile" style="display: none;"><!-- this is inside body -->
+<h2>Hey! We are in AtomicReact Playground</h2>
+<!-- test your Atoms here -->
+<!-- <myFirstAtom></myFirstAtom> -->
+</div>
+
   <div atomic.sub="ide" class="ide">
     <button atomic.sub="btnToggleSidebar" data-sidebar-openned="true" type="button" class="btn btn-warning"><</button>
     <div atomic.sub="sidebar" class="sidebar">
       <h3 class="title"><a target="_blank" href="https://AtomicReact.js.org">AtomicReact</a> Playground</h3>
-      <Menu></Menu>
+      <Menu atomic.sub="menu"></Menu>
     </div>
     <div atomic.sub="view" class="view">
       <Editor atomic.sub="editor"></Editor>

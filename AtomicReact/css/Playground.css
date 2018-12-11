@@ -10,6 +10,10 @@ body {
   left: 175px;
   top: 5px;
   position: absolute;
+  -webkit-transition: left 0.3s ease-out;
+  -moz-transition: left 0.3s ease-out;
+  -o-transition: left 0.3s ease-out;
+  transition: left 0.3s ease-out;
 }
 [data-atomic-key="Playground"] > .ide .sidebar {
   width: 170px;
@@ -19,6 +23,10 @@ body {
   position: fixed;
   display: block;
   overflow: scroll;
+  -webkit-transition: width 0.3s ease-out;
+  -moz-transition: width 0.3s ease-out;
+  -o-transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out;
 }
 [data-atomic-key="Playground"] > .ide .sidebar .title a {
   color: #FF0;
@@ -28,15 +36,17 @@ body {
   margin-left: 170px;
   width: auto;
   padding-left:10px;
+  -webkit-transition: margin-left 0.3s ease-out;
+  -moz-transition: margin-left 0.3s ease-out;
+  -o-transition: margin-left 0.3s ease-out;
+  transition: margin-left 0.3s ease-out;
 }
 [data-atomic-key="Playground"] > .ide > .view [data-atomic-sub="barSizable"]{
   z-index: 2;
   margin: auto;
   width: 100%;
-  height: 1px;
-  background-color: #234ea6;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 15px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -44,4 +54,11 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: row-resize;
+}
+[data-atomic-key="Playground"] > .ide > .view [data-atomic-sub="barSizable"]::before{
+  width: 100%;
+  height: 1px;
+  content: "";
+  display: block;
+  background-color: #234ea6;
 }
