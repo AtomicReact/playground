@@ -29,6 +29,7 @@
   text-align: center;
   display: inline-block;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 [data-atomic-key="AtomAdd"] #btnAdd {
   cursor: pointer;
@@ -44,6 +45,17 @@
 }
 [data-atomic-key="AtomAdd"] #btnAdd:hover > polygon {
   opacity: 1;
+}
+[data-atomic-key="AtomAdd"] > [data-atomic-sub="atomKey"] {
+  background-color: transparent;
+  width: 90%;
+  font-style: italic;
+  text-align: center;
+  padding-left: 10px;
+  outline: none;
+  color: #FF0;
+  border: 1px solid #ceac20;
+  border-radius: 10px;
 }
 [data-atomic-key="Editor"] > [data-atomic-sub="fileTitle"] {
   background-color: #0f2042;

@@ -1,10 +1,8 @@
 class Main {
   onRender(){
-    // console.log(Atomic.Global.atomosRendered.list);
-    this.indexFile = this.getSub('indexFile');
-
     this.btnToggleSidebar = this.getSub('btnToggleSidebar');
     this.sidebar = this.getSub('sidebar');
+    this.atomAdd = this.getSub('atomAdd');
     this.menu = this.getSub('menu');
     this.btnIndexFile = Atomic.getSub(this.menu, 'btnIndexFile');
 
@@ -18,7 +16,9 @@ class Main {
 
     this.preview = this.getSub('preview');
     this.iframe = Atomic.getSub(this.preview, 'iframe');
-    console.log(this.iframe);
+
+    this.initialAtoms = Object.assign(Atomic.Atomos);
+    this.atomsAdded = [];
 
     this.init();
   }
@@ -28,7 +28,6 @@ class Main {
     /* Initialize ACE EDITOR */
     this.aceEditor = ace.edit(this.coder);
     this.aceEditor.setTheme("ace/theme/dracula");
-    console.log(this.aceEditor);
 
     this.updatePreviewHeight();
 
@@ -53,19 +52,41 @@ class Main {
     }).bind(this);
 
     /* Index File */
-    var sessionIndexFile = new ace.EditSession(this.indexFile.innerHTML, "ace/mode/html");
-    sessionIndexFile.on('change', (function(delta) {
-      this.indexFile.innerHTML = this.aceEditor.getValue();
+    this.sessionIndexFile = new ace.EditSession("<h2>We'r in <b>body</b> of index.html</h2>\n<!-- <<< Create your Atom clicking on left Add Button <<< -->", "ace/mode/html");
+    this.sessionIndexFile.setUndoManager(new ace.UndoManager());
+    this.sessionIndexFile.on('change', (function(delta) {
       this.renderPreview();
     }).bind(this));
     this.btnIndexFile.onclick = (function(){
       this.editor.Atomic.main.setTitle("index.html");
-      // Atomic.getAtom('Editor').main.setTitle(this.editor, ">>> index.html");
-      this.aceEditor.setSession(sessionIndexFile);
+      this.aceEditor.setSession(this.sessionIndexFile);
       this.renderPreview();
     }).bind(this);
 
     this.btnIndexFile.click();
+
+    /* Menu */
+    this.menu.Atomic.main.atomAddedListener = (atomAdded)=>{
+      this.atomsAdded.push(atomAdded);
+
+      let Atom = atomAdded.Atomic.main;
+      Atom.getSub('btnHtml').onclick = ()=>{
+        this.editor.Atomic.main.setTitle(Atom.atomKey+".html");
+        this.aceEditor.setSession(Atom.sessionHtml);
+      }
+      Atom.sessionHtml.on('change', (function(delta) {
+        this.renderPreview();
+      }).bind(this));
+    };
+
+    /* atomAdd */
+    Atomic.getSub(this.atomAdd, 'btnAdd').onclick = ()=>{
+      let inputAtomKey = Atomic.getSub(this.atomAdd, 'atomKey');
+      if(inputAtomKey.value.length<=0) { return alert("Atom's Key must be 1 character at minimum");}
+      if(inputAtomKey.value.indexOf(" ")>=0) { return alert("Atom's Key can't has space");}
+      this.menu.Atomic.main.add('Atom', [{key:'atomKey', value: inputAtomKey.value}]);
+      inputAtomKey.value = "";
+    };
   }
   updatePreviewHeight(){
     this.preview.style.height = (window.innerHeight-this.barSizable.offsetTop-50)+'px';
@@ -89,8 +110,17 @@ class Main {
     }).bind(this);
   }
   renderPreview(){
-    this.iframe.innerHTML = this.indexFile.innerHTML;
+    Atomic.Atomos = [];
+
+    this.atomsAdded.forEach((atom)=>{
+      let Atom = atom.Atomic.main;
+      Atomic.addAtomo({key: Atom.atomKey, data:Atom.sessionHtml.getValue()});
+    });
+
+    this.iframe.innerHTML = this.sessionIndexFile.getValue();
     Atomic.renderElement(this.iframe);
+
+    Atomic.Atomos = Object.assign(this.initialAtoms);
   }
 }
 module.exports.main = Main;
