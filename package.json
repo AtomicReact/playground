@@ -15,7 +15,7 @@
   "author": "Guihgo",
   "license": "MIT",
   "dependencies": {
-    "atomicreact": "^1.1.15",
+    "atomicreact": "^1.1.16",
     "express": "^4.16.4",
     "gulp": "^4.0.0",
     "gulp-clean-css": "^4.0.0",

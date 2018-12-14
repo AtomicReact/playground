@@ -72,7 +72,7 @@ class Main {
       let inputAtomKey = Atomic.getSub(this.atomAdd, 'atomKey');
       if(inputAtomKey.value.length<=0) {inputAtomKey.focus(); return alert("Atom's Key must be 1 character at minimum");}
       if(inputAtomKey.value.indexOf(" ")>=0) {inputAtomKey.focus(); return alert("Atom's Key can't have space");}
-      this.menu.Atomic.main.add('Atom', [{key:'atomKey', value: inputAtomKey.value}], 'afterbegin');
+      this.menu.Atomic.main.add('Atom', [{key:'atomKey', value: inputAtomKey.value}], 'afterbegin');   
       inputAtomKey.value = "";
       this.renderPreview();
     };
@@ -145,7 +145,9 @@ class Main {
       Atomic.renderElement(this.iframe);
     } catch(e) {return;}
 
-    Atomic.Atomos = Object.assign(this.initialAtoms);
+    this.initialAtoms.forEach((atom)=>{
+      Atomic.Atomos.push(Object.assign(atom));
+    });
   }
 }
 module.exports.main = Main;
