@@ -4,7 +4,7 @@ class Main {
     this.sidebar = this.getSub('sidebar');
     this.atomAdd = this.getSub('atomAdd');
     this.menu = this.getSub('menu');
-    this.btnIndexFile = Atomic.getSub(this.menu, 'btnIndexFile');
+    this.btnIndexFile = this.getSub('btnIndexFile');
 
     this.view = this.getSub('view');
 
@@ -15,6 +15,7 @@ class Main {
     this.barSizable = this.getSub('barSizable');
 
     this.preview = this.getSub('preview');
+    this.style = Atomic.getSub(this.preview, 'style');
     this.iframe = Atomic.getSub(this.preview, 'iframe');
 
     this.initialAtoms = Object.assign(Atomic.Atomos);
@@ -52,7 +53,8 @@ class Main {
     }).bind(this);
 
     /* Index File */
-    this.sessionIndexFile = new ace.EditSession("<h2>We'r in <b>body</b> of index.html</h2>\n<!-- <<< Create your Atom clicking on left Add Button <<< -->", "ace/mode/html");
+    this.sessionIndexFile = new ace.EditSession("<!DOCTYPE HTML>\n<!-- <<< Create your Atom clicking on left Add Button <<< -->\n<h2>We'r in <b>body</b> of index.html</h2>\n", "ace/mode/html");
+    this.sessionIndexFile.getSelection().moveCursorFileEnd();
     this.sessionIndexFile.setUndoManager(new ace.UndoManager());
     this.sessionIndexFile.on('change', (function(delta) {
       this.renderPreview();
@@ -65,6 +67,16 @@ class Main {
 
     this.btnIndexFile.click();
 
+    /* atomAdd */
+    Atomic.getSub(this.atomAdd, 'btnAdd').onclick = ()=>{
+      let inputAtomKey = Atomic.getSub(this.atomAdd, 'atomKey');
+      if(inputAtomKey.value.length<=0) {inputAtomKey.focus(); return alert("Atom's Key must be 1 character at minimum");}
+      if(inputAtomKey.value.indexOf(" ")>=0) {inputAtomKey.focus(); return alert("Atom's Key can't have space");}
+      this.menu.Atomic.main.add('Atom', [{key:'atomKey', value: inputAtomKey.value}], 'afterbegin');
+      inputAtomKey.value = "";
+      this.renderPreview();
+    };
+
     /* Menu */
     this.menu.Atomic.main.atomAddedListener = (atomAdded)=>{
       this.atomsAdded.push(atomAdded);
@@ -74,19 +86,20 @@ class Main {
         this.editor.Atomic.main.setTitle(Atom.atomKey+".html");
         this.aceEditor.setSession(Atom.sessionHtml);
       }
-      Atom.sessionHtml.on('change', (function(delta) {
-        this.renderPreview();
-      }).bind(this));
+      Atom.getSub('btnJs').onclick = ()=>{
+        this.editor.Atomic.main.setTitle(Atom.atomKey+".js");
+        this.aceEditor.setSession(Atom.sessionJs);
+      }
+      Atom.getSub('btnCss').onclick = ()=>{
+        this.editor.Atomic.main.setTitle(Atom.atomKey+".css");
+        this.aceEditor.setSession(Atom.sessionCss);
+      }
+      Atom.sessionHtml.on('change', this.renderPreview.bind(this));
+      Atom.sessionJs.on('change', this.renderPreview.bind(this));
+      Atom.sessionCss.on('change', this.renderPreview.bind(this));
+      Atom.getSub('btnHtml').dispatchEvent(new Event('click'));
     };
 
-    /* atomAdd */
-    Atomic.getSub(this.atomAdd, 'btnAdd').onclick = ()=>{
-      let inputAtomKey = Atomic.getSub(this.atomAdd, 'atomKey');
-      if(inputAtomKey.value.length<=0) { return alert("Atom's Key must be 1 character at minimum");}
-      if(inputAtomKey.value.indexOf(" ")>=0) { return alert("Atom's Key can't has space");}
-      this.menu.Atomic.main.add('Atom', [{key:'atomKey', value: inputAtomKey.value}]);
-      inputAtomKey.value = "";
-    };
   }
   updatePreviewHeight(){
     this.preview.style.height = (window.innerHeight-this.barSizable.offsetTop-50)+'px';
@@ -112,13 +125,25 @@ class Main {
   renderPreview(){
     Atomic.Atomos = [];
 
-    this.atomsAdded.forEach((atom)=>{
-      let Atom = atom.Atomic.main;
-      Atomic.addAtomo({key: Atom.atomKey, data:Atom.sessionHtml.getValue()});
-    });
+    try {
+      this.style.innerHTML='';
 
-    this.iframe.innerHTML = this.sessionIndexFile.getValue();
-    Atomic.renderElement(this.iframe);
+      this.atomsAdded.forEach((atom)=>{
+        let Atom = atom.Atomic.main;
+        this.style.innerHTML  += Atom.sessionCss.getValue();
+
+        let js = "var module = { exports: { main: null } };";
+        js+=Atom.sessionJs.getValue();
+        js+="module;";
+        let module = null;
+        module = eval(js);
+        Atomic.addAtomo({key: Atom.atomKey, data:Atom.sessionHtml.getValue(), mainClass: module.exports.main});
+        Atomic.getAtom(Atom.atomKey).main = new (Atomic.getAtom(Atom.atomKey)).mainClass();
+      });
+
+      this.iframe.innerHTML = this.sessionIndexFile.getValue();
+      Atomic.renderElement(this.iframe);
+    } catch(e) {return;}
 
     Atomic.Atomos = Object.assign(this.initialAtoms);
   }

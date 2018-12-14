@@ -73,10 +73,6 @@
 [data-atomic-key="Menu"] {
   text-align: center;
 }
-[data-atomic-key="Menu"] > button {
-  padding: 10px;
-  width: 90%;
-}
 body {
   background-color: #1e1f2f !important;
   color: #FFF !important;
@@ -110,6 +106,14 @@ body {
 [data-atomic-key="Playground"] > .ide .sidebar .title a {
   color: #FF0;
   text-decoration: none;
+}
+[data-atomic-key="Playground"] > .ide .sidebar {
+  text-align: center;
+}
+[data-atomic-key="Playground"] > .ide .sidebar button {
+  padding: 10px;
+  width: 90%;
+  color: #FFF;
 }
 [data-atomic-key="Playground"] > .ide .view{
   margin-left: 170px;
