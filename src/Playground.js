@@ -16,6 +16,7 @@ class Playground {
   setupApp() {
     this.app.use(this.express.json());
     this.app.use(this.express.static(this.config.dir.public));
+    this.app.use(this.express.static(this.config.dir.play));
 
     if(process.env.deployMode=='true') {
       this.app.use(this.express.static(this.config.dir.dist));
@@ -29,7 +30,7 @@ class Playground {
   }
   startHttpServer(){
     this.server.listen(this.port, ()=>{
-      console.log('Server http started on port ', this.port);
+      console.log('Server http started on port: ', this.port);
     });
   }
   start() {
