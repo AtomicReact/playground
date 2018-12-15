@@ -1,5 +1,8 @@
 class Main {
   onRender(){
+    this.request = this.getSub('request').Atomic.main;
+    this.btnShare = this.getSub('btnShare');
+
     this.btnToggleSidebar = this.getSub('btnToggleSidebar');
     this.sidebar = this.getSub('sidebar');
     this.atomAdd = this.getSub('atomAdd');
@@ -22,8 +25,36 @@ class Main {
     this.atomsAdded = [];
 
     this.init();
+    this.btnIndexFile.click();
   }
   init() {
+    /* Setup request */
+    this.request.setServerUrl(document.location.origin);
+
+    /* Share */
+    this.btnShare.onclick = ()=>{
+      let objToSend = {
+        index: this.sessionIndexFile.getValue(),
+        atom: []
+      };
+
+      this.atomsAdded.forEach((atom)=>{
+        objToSend.atom.push({
+          key: atom.Atomic.main.atomKey,
+          code: {
+            html: atom.Atomic.main.sessionHtml.getValue(),
+            js: atom.Atomic.main.sessionJs.getValue(),
+            css: atom.Atomic.main.sessionCss.getValue()
+          }
+        });
+      });
+      this.request.json('/share', objToSend, (res)=>{
+        if(res.sucess==1) {
+          document.location = '/'+res.id;
+        }
+      });
+    };
+
     this.toggleSidebar();
 
     /* Initialize ACE EDITOR */
@@ -65,14 +96,12 @@ class Main {
       this.renderPreview();
     }).bind(this);
 
-    this.btnIndexFile.click();
-
     /* atomAdd */
     Atomic.getSub(this.atomAdd, 'btnAdd').onclick = ()=>{
       let inputAtomKey = Atomic.getSub(this.atomAdd, 'atomKey');
-      if(inputAtomKey.value.length<=0) {inputAtomKey.focus(); return alert("Atom's Key must be 1 character at minimum");}
+      if(inputAtomKey.value.length<=0) {inputAtomKey.focus(); return alert("Atom's Key must have 1 character at minimum");}
       if(inputAtomKey.value.indexOf(" ")>=0) {inputAtomKey.focus(); return alert("Atom's Key can't have space");}
-      this.menu.Atomic.main.add('Atom', [{key:'atomKey', value: inputAtomKey.value}], 'afterbegin');   
+      this.menu.Atomic.main.add('Atom', [{key:'atomKey', value: inputAtomKey.value}], 'afterbegin');
       inputAtomKey.value = "";
       this.renderPreview();
     };
@@ -99,6 +128,22 @@ class Main {
       Atom.sessionCss.on('change', this.renderPreview.bind(this));
       Atom.getSub('btnHtml').dispatchEvent(new Event('click'));
     };
+
+    /* Atoms Shared */
+    if(document.location.pathname!='/') {
+      this.request.json('/', {id: document.location.pathname.replace('/', '')}, (res)=>{
+        if(res.sucess==1) {
+          this.sessionIndexFile.setValue(res.playground.index);
+          res.playground.atom.forEach((atom)=>{
+            var atomAdded = this.menu.Atomic.main.add('Atom', [{key:'atomKey', value: atom.key}], 'afterbegin');
+            atomAdded.Atomic.main.sessionHtml.setValue(atom.code.html);
+            atomAdded.Atomic.main.sessionJs.setValue(atom.code.js);
+            atomAdded.Atomic.main.sessionCss.setValue(atom.code.css);
+          });
+          this.btnIndexFile.click();
+        }
+      });
+    }
 
   }
   updatePreviewHeight(){

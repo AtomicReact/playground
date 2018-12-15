@@ -80,6 +80,12 @@ body {
 [data-atomic-key="Playground"] {
   padding-top: 0px;
 }
+[data-atomic-key="Playground"] > [data-atomic-sub="btnShare"] {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 2;
+}
 [data-atomic-key="Playground"] > .ide [data-atomic-sub="btnToggleSidebar"] {
   z-index: 100;
   left: 175px;
