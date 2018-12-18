@@ -49,6 +49,7 @@ class Main {
         });
       });
       this.request.json('/share', objToSend, (res)=>{
+        if(res.sucess==0) { console.log(res.msg); }
         if(res.sucess==1) {
           document.location = '/'+res.id;
         }
@@ -132,6 +133,7 @@ class Main {
     /* Atoms Shared */
     if(document.location.pathname!='/') {
       this.request.json('/', {id: document.location.pathname.replace('/', '')}, (res)=>{
+        if(res.sucess==0) {return alert(res.msg); }
         if(res.sucess==1) {
           this.sessionIndexFile.setValue(res.playground.index);
           res.playground.atom.forEach((atom)=>{

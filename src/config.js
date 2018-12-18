@@ -15,6 +15,9 @@ dir.dist = path.join(dir.src, './dist');
 dir.play = path.join(dir.src, './play');
 
 var config = {
-  dir: dir
+  dir: dir,
+  github: {
+    accessToken: process.env.github_access_token
+  }
 };
 module.exports = config;
