@@ -22,7 +22,7 @@ class PlaygroundController extends BaseController{
         headers:
          { 'User-Agent': 'Playground',
            'cache-control': 'no-cache',
-           Authorization: 'token 8a9826942a20d07a15acba0cc1bffe9427658558',
+           Authorization: 'token '+process.env.github_access_token,
            'Content-Type': 'application/json' },
         body:
          { description: 'Playground',
@@ -49,7 +49,7 @@ class PlaygroundController extends BaseController{
         headers:
          { 'User-Agent': 'Playground',
            'cache-control': 'no-cache',
-           Authorization: 'token 8a9826942a20d07a15acba0cc1bffe9427658558',
+           Authorization: 'token '+process.env.github_access_token,
            'Content-Type': 'application/json' },
          json: true
        };
