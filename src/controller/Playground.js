@@ -56,7 +56,9 @@ class PlaygroundController extends BaseController{
 
        this.request(options, function (err, response, body) {
          if(err) {return res.json({sucess: 0, msg: "Couldn't open Playground. Refresh the page"}); }
-         return res.json({sucess: 1, msg: 'ok', playground:JSON.parse(Buffer.from(body.files.playground.content, 'base64').toString())});
+         try {
+           return res.json({sucess: 1, msg: 'ok', playground:JSON.parse(Buffer.from(body.files.playground.content, 'base64').toString())});
+         } catch(e){console.log(e)}
        });
     }
   }
