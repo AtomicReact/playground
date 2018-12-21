@@ -1,6 +1,6 @@
 # Playground for AtomicReact
 
-## Oficial link:
+## Official link:
 - https://playground-atomicreact.herokuapp.com/
 
 ## THE BEST PLAYGROUNDS LIST
