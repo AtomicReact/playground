@@ -25,6 +25,10 @@ npm i
 npm start
 ```
 
+## Missing features
+* Remove Atom
+* Download Playground (Export)
+
 ## Thanks
 
 * [Heroku](https://www.heroku.com/): deploy
