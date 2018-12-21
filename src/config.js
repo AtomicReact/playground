@@ -16,8 +16,9 @@ dir.play = path.join(dir.src, './play');
 
 var config = {
   dir: dir,
-  github: {
-    accessToken: process.env.github_access_token
+  google: {
+    client_id: '500280409256-n699dn1v8007q2mprnn0qpsseghvffvl.apps.googleusercontent.com',
+    folder_id: ['1WMl7PLRt9C1-fBZfsZFsaJapmlMFOuuh']
   }
 };
 module.exports = config;

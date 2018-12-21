@@ -1,3 +1,4 @@
+require('dotenv').config();
 console.log('[process.env.deployMode]', process.env.deployMode);
 
 if(process.env.deployMode==='true') {

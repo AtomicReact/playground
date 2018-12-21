@@ -23,7 +23,10 @@
     "request": "^2.88.0",
     "request-atomicreact": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "dotenv": "^6.2.0",
+    "googleapis": "^36.0.0"
+  },
   "atomicReact": {
     "dependencies": [
       "request-atomicreact"
