@@ -24,3 +24,7 @@ npm i
 ```shell
 npm start
 ```
+
+#Thanks
+
+* [Heroku](https://www.heroku.com/): deploy
