@@ -25,6 +25,6 @@ npm i
 npm start
 ```
 
-#Thanks
+## Thanks
 
 * [Heroku](https://www.heroku.com/): deploy
