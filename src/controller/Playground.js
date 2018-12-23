@@ -173,10 +173,16 @@ class PlaygroundController extends BaseController{
       }
       this.refreshGoogleAccessToken(google_client_secret, google_refresh_token, this.config.google.client_id, (err, response, body)=>{
         if(err) { resolve({sucess: 0, msg: "Couldn't refresh access token. Please try again."}) }
-        getFile(body.access_token, id, (err, response, body)=>{
-          if(err) { resolve({sucess: 0, msg: "Couldn't open Playground from Google."}) }
-          resolve({sucess: 1, msg: 'ok', playground:body});
-        });
+        try {
+          getFile(body.access_token, id, (err, response, body)=>{
+            if(err) { resolve({sucess: 0, msg: "Couldn't open Playground from Google."}) }
+            if(body.error) {  resolve({sucess: 0, msg: "Playground not found", message: body.error.message, code: body.error.code}) }
+            resolve({sucess: 1, msg: 'ok', playground:body});
+          });
+        } catch(e) {
+          resolve({sucess: 0, msg: "Couldn't get Playground. Please try again.", exception: e})
+        }
+
       });
     });
   }
